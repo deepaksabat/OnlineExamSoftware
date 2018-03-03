@@ -1,0 +1,75 @@
+{
+    "name": "laravel/laravel",
+    "description": "The Laravel Framework.",
+    "keywords": ["framework", "laravel"],
+    "license": "MIT",
+    "type": "project",
+    "require": {
+        "php": ">=5.5.9",
+        "laravel/framework": "5.2.*",
+         "laravelcollective/html": "5.2.*",
+        "intervention/image": "^2.3",
+        "yajra/laravel-datatables-oracle": "~6.0",
+        "milon/barcode": "^5.2" ,
+        "laravel/cashier": "^6.0",
+         "cmgmyr/messenger": "~2.0",
+        "google/apiclient": "^2.0",
+       
+        "stripe/stripe-php": "^3.19",
+        "pusher/pusher-php-server": "^2.4",
+        "vinkla/pusher": "^2.4",
+        "stichoza/google-translate-php": "^3.2",
+        "softon/indipay": "^1.0",
+        "simplesoftwareio/simple-sms": "3.0.*",
+        "dompdf/dompdf": "~0.6.1",
+        "laravel/socialite": "^2.0"
+    },
+    "require-dev": {
+        "fzaninotto/faker": "~1.4",
+        "mockery/mockery": "0.9.*",
+        "phpunit/phpunit": "~4.0",
+        "symfony/css-selector": "2.8.*|3.0.*",
+        "symfony/dom-crawler": "2.8.*|3.0.*",
+        "zizaco/entrust": "5.2.x-dev"
+
+
+    },
+    "autoload": {
+        "classmap": [
+            "database",
+             "vendor/google/apiclient/src/Google"
+        ],
+         "files": [
+          "app/helpers.php",
+           "app/constants.php",
+          "app/language_helper.php"
+        ],
+        "psr-4": {
+            "App\\": "app/"
+        }
+    },
+    "autoload-dev": {
+        "classmap": [
+            "tests/TestCase.php"
+        ]
+    },
+    "scripts": {
+        "post-root-package-install": [
+            "php -r \"copy('.env.example', '.env');\""
+        ],
+        "post-create-project-cmd": [
+            "php artisan key:generate"
+        ],
+        "post-install-cmd": [
+            "Illuminate\\Foundation\\ComposerScripts::postInstall",
+            "php artisan optimize"
+        ],
+        "post-update-cmd": [
+            "Illuminate\\Foundation\\ComposerScripts::postUpdate",
+            "php artisan optimize"
+        ]
+    },
+    "config": {
+        "preferred-install": "dist"
+    }
+}
